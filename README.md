@@ -4,5 +4,5 @@
 
 ### Prerequisites
 
-node.js v 12.x
+node.js v12.x
 
