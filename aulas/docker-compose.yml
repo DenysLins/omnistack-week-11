@@ -1,0 +1,21 @@
+version: "3"
+services:
+  front:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    ports:
+      - 3000:3000
+  back:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./backend:/app
+    ports:
+      - 3333:3333
+    tty: true

@@ -9,4 +9,6 @@ app.get('/', (req, res) => {
   })
 })
 
-app.listen(3333)
+app.listen(process.env.BACKEND_PORT | 3333, err => {
+  console.log(err)
+})
