@@ -1,62 +1,32 @@
 const express = require('express')
+const crypto = require('crypto')
+const connection = require('./database/index')
 
 const routes = express.Router()
 
-routes.get('/users', (req, res) => {
-  const query = req.query
-  const params = req.params
-  const body = req.body
-
-  const response = {
-    evento: 'Semana OmniStack 11.0',
-    aluno: 'Denys Lins',
-    method: 'get',
-    query: query,
-    params: params,
-    body: body
+routes.post('/ongs', async (req, res) => {
+  const { name, email, whatsapp, city, uf } = req.body
+  const id = crypto.randomBytes(4).toString('HEX')
+  const ong = {
+    id: id,
+    name: name,
+    email: email,
+    whatsapp: whatsapp,
+    city: city,
+    uf: uf
   }
 
-  console.log(response)
+  console.log(ong)
 
-  return res.json(response)
+  await connection('ongs').insert(ong)
+
+  return res.json({ id })
 })
 
-routes.get('/users/:id', (req, res) => {
-  const query = req.query
-  const params = req.params
-  const body = req.body
+routes.get('/ongs', async (req, res) => {
+  const data = await connection.select().table('ongs')
 
-  const response = {
-    evento: 'Semana OmniStack 11.0',
-    aluno: 'Denys Lins',
-    method: 'get BY ID',
-    query: query,
-    params: params,
-    body: body
-  }
-
-  console.log(response)
-
-  return res.json(response)
-})
-
-routes.post('/users', (req, res) => {
-  const query = req.query
-  const params = req.params
-  const body = req.body
-
-  const response = {
-    evento: 'Semana OmniStack 11.0',
-    aluno: 'Denys Lins',
-    method: 'post',
-    query: query,
-    params: params,
-    body: body
-  }
-
-  console.log(response)
-
-  return res.json(response)
+  return res.json(data)
 })
 
 module.exports = routes
