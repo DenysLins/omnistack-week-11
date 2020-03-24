@@ -9,6 +9,12 @@ services:
       - ./frontend:/app
     ports:
       - 3000:3000
+  prod:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3000
   back:
     build:
       context: ./backend
@@ -18,4 +24,3 @@ services:
       - ./backend:/app
     ports:
       - 3333:3333
-    tty: true
