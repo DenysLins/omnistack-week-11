@@ -3,8 +3,27 @@ const connection = require('../database/index')
 module.exports = {
 
   async list(req, res) {
-    const incidents = await connection.select().table('incidents')
-    console.log(incidents)
+
+    const { page = 1 } = req.query
+    const { size = 3 } = req.query
+
+    const [count] = await connection('incidents').count()
+
+    const incidents = await connection('incidents')
+      .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
+      .limit(size)
+      .offset((page - 1) * size)
+      .select([
+        'incidents.*',
+        'ongs.name',
+        'ongs.email',
+        'ongs.whatsapp',
+        'ongs.city',
+        'ongs.uf'
+      ])
+
+    res.header('X-Total-Count', count['count(*)'])
+
     return res.json(incidents)
   },
 
@@ -18,18 +37,26 @@ module.exports = {
       ong_id: ong_id,
       value: value
     }
-    console.log(incident)
     const [id] = await connection('incidents').insert(incident)
     return res.json({ id })
   },
 
   async delete(req, res) {
     const { id } = req.params
-    console.log(id)
-    await connection('incidents')
+    const ong_id = req.headers.authorization
+
+    const incident = await connection('incidents')
       .where('id', id)
-      .del()
-    return res.json({ id })
+      .select('ong_id')
+      .first()
+
+    if (incident.ong_id !== ong_id) {
+      return res.status(401).json({ error: 'Operation not permitted' })
+    }
+
+    await connection('incidents').where('id', id).del()
+    return res.status(204).send()
+
   }
 
 }

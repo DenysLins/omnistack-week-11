@@ -5,7 +5,6 @@ module.exports = {
 
   async list(req, res) {
     const ongs = await connection.select().table('ongs')
-    console.log(ongs)
     return res.json(ongs)
   },
 
@@ -20,7 +19,6 @@ module.exports = {
       city: city,
       uf: uf
     }
-    console.log(ong)
     await connection('ongs').insert(ong)
     return res.json({ id })
   }
