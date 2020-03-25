@@ -12,3 +12,9 @@
 cd aulas
 docker-compose up
 ```
+
+To access the fronted in dev mode visit <http://localhost:3000>.
+
+To access the frontend in prod mode visit <http://localhost:3001>
+
+To acess the backend visit <http://localhost:3333/health>
