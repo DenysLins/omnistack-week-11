@@ -8,6 +8,14 @@
 
 ### How to run
 
+TO run in your local machine, first create a database (db.sqlite) file. Run the following command inside the backend folder:
+
+```sh
+npm install
+npx knex migrate:latest
+```
+To run containers for frontend in development mode, frontend in production mode and the backend, run the following command inside the aulas folder:
+
 ```sh
 cd aulas
 docker-compose up
