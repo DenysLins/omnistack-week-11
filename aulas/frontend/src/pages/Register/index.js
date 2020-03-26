@@ -31,7 +31,8 @@ function Register () {
       alert(`Seu ID de acesso: ${response.data.id}`)
       history.push('/')
     } catch (error) {
-      alert(`Erro no cadastro, tente novamente: ${error}`)
+      console.log(error)
+      alert(`Erro ao cadastrar ONG. Tente novamente: ${error}`)
     }
   }
 

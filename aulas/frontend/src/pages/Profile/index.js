@@ -20,7 +20,6 @@ function Profile () {
         Authorization: ongId
       }
     }).then(response => {
-      console.log(response.data)
       setIncidents(response.data)
     })
   }, [ongId])
@@ -40,8 +39,7 @@ function Profile () {
   }
 
   function handleLogout () {
-    localStorage.removeItem('ongId')
-    localStorage.removeItem('ongName')
+    localStorage.clear()
     history.push('/')
   }
 

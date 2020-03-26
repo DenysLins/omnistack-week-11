@@ -21,7 +21,7 @@ function Logon () {
       history.push('/profile')
     } catch (error) {
       console.log(error)
-      alert('Falha no logon. Tente novamente.')
+      alert('Erro ao efetuar logon. Tente novamente.')
     }
   }
 
