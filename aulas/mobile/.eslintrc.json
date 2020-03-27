@@ -5,7 +5,7 @@
   },
   "parser": "babel-eslint",
   "extends": [
-    "plugin:react-native/recommended",
+    "plugin:react-native/all",
     "standard"
   ],
   "globals": {
@@ -20,6 +20,7 @@
     "sourceType": "module"
   },
   "plugins": [
+    "react",
     "react-native"
   ],
   "rules": {}

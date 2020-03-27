@@ -2,65 +2,71 @@ import { StyleSheet } from 'react-native'
 
 import Constants from 'expo-constants'
 
+const $e01541 = '#e01541'
+const $737380 = '#737380'
+const $FFF = '#FFF'
+const $41414d = '#41414d'
+const $13131a = '#13131a'
+
 export default StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 24,
-    paddingTop: Constants.statusBarHeight + 20,
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  headerText: {
-    fontSize: 15,
-    color: "#737380"
-  },
-  headerTextBold: {
-    fontWeight: "bold"
-  },
-  title: {
-    fontSize: 30,
-    marginBottom: 16,
-    marginTop: 40,
-    color: "#13131a",
-    fontWeight: "bold"
+    paddingTop: Constants.statusBarHeight + 20
   },
   description: {
+    color: $737380,
     fontSize: 16,
-    lineHeight: 24,
-    color: "#737380"
+    lineHeight: 24
+  },
+  detailsButton: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  detailsButtonText: {
+    color: $e01541,
+    fontSize: 15,
+    fontWeight: 'bold'
+  },
+  header: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  headerText: {
+    color: $737380,
+    fontSize: 15
+  },
+  headerTextBold: {
+    fontWeight: 'bold'
+  },
+  incident: {
+    backgroundColor: $FFF,
+    borderRadius: 8,
+    marginBottom: 16,
+    padding: 24
   },
   incidentList: {
     marginTop: 32
   },
-  incident: {
-    padding: 24,
-    borderRadius: 8,
-    backgroundColor: "#fff",
-    marginBottom: 16
-  },
   incidentProperty: {
+    color: $41414d,
     fontSize: 14,
-    color: "#41414d",
-    fontWeight: "bold"
+    fontWeight: 'bold'
   },
   incidentValue: {
-    marginTop: 8,
+    color: $737380,
     fontSize: 15,
     marginBottom: 24,
-    color: "#737380"
+    marginTop: 8
   },
-  detailsButton: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  detailsButtonText: {
-    color: "#e01541",
-    fontSize: 15,
-    fontWeight: "bold"
+  title: {
+    color: $13131a,
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    marginTop: 40
   }
 
 })
