@@ -1,6 +1,6 @@
 # OmniStack Week 11 - Be the Hero
 
-## This is my solution code for [OmniStack Week 11.0](https://rocketseat.com.br/week/aulas/11.0)
+## This is my code from OmniStack Week 11 by [Rocketseat](https://rocketseat.com.br)
 
 This application is composed of a web frontend made using Reactjs, a backend made using Nodejs, and a Mobile client made using React-Native.
 
