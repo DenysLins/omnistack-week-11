@@ -2,27 +2,71 @@
 
 ## This is my solution code for [OmniStack Week 11.0](https://rocketseat.com.br/week/aulas/11.0)
 
-### Prerequisites
+This application is composed of a web frontend made using Reactjs, a backend made using Nodejs, and a Mobile client made using React-Native.
 
-* docker-compose
+## Prerequisites
 
-### How to run
+- Nodejs v12
+- Docker
+- docker-compose
 
-TO run in your local machine, first create a database (db.sqlite) file. Run the following command inside the backend folder:
+## How to run
+
+### Frontend
+
+To run the frontend, go to folder /aulas/frontend and execute the following commands:
+
+```sh
+npm install
+npm start
+```
+
+Access the frontend visiting <http://localhost:3000>.
+
+### Backend
+
+To run the backend, first we need to generate a development database. To generate a sqlite3 database, go to folder /aulas/backend and execute:
 
 ```sh
 npm install
 npx knex migrate:latest
 ```
-To run containers for frontend in development mode, frontend in production mode and the backend, run the following command inside the aulas folder:
+
+And run the node backend with the following command:
 
 ```sh
-cd aulas
+npm start
+```
+
+We can also run the backend in development mode, using nodemon, running:
+
+```sh
+npm run dev
+```
+
+The backend will be exposed in <http://localhost:3333>.
+
+### Mobile
+
+The mobile client was made using Expo. To run the mobile client, execute the commands:
+
+```sh
+npm install
+npm start
+```
+
+Follow the CLI instructions to run the Mobile client in a real Cellphone, Emulator ou Web.
+
+### Containers
+
+To run containers for frontend in development mode, frontend in production mode and the backend, execute the following command inside the folder /aulas:
+
+```sh
 docker-compose up
 ```
 
-To access the fronted in dev mode visit <http://localhost:3000>.
+To stop and remove the containers, execute:
 
-To access the frontend in prod mode visit <http://localhost:3001>
-
-To access the backend visit <http://localhost:3333/health>
+```sh
+docker-compose down
+```
