@@ -120,5 +120,6 @@ temp/
 .history
 
 db.sqlite
+test.sqlite
 
 # End of https://www.gitignore.io/api/node,visualstudiocode
