@@ -1,6 +1,8 @@
 # OmniStack Week 11 - Be the Hero
 
-![Be the Hero](./cover.png)
+![Sign in](./cover.png)
+
+![Sign up](./cover2.png)
 
 ## This is my code from OmniStack Week 11 by [Rocketseat](https://rocketseat.com.br)
 
